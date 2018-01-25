@@ -1,0 +1,26 @@
+- if flash[:notice]
+  .notice
+    = flash[:notice]
+= form_tag trackable_users_url, method: :get do
+  = label_tag :search
+  = text_field_tag :search
+  = submit_tag 'Search'
+
+= form_tag trackable_users_url do
+  = label_tag :user
+  = text_field_tag :user
+  = submit_tag 'Add'
+
+- @track_users.each do |user|
+  %p
+    .id
+      User id:
+      = user.id
+    .name
+      Username:
+      = user.name
+    .screen_name
+      Screen name:
+      = user.screen_name
+    .delete
+      = link_to 'Delete', trackable_user_url(user.id), method: :delete

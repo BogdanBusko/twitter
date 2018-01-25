@@ -1,0 +1,14 @@
+- @posts.each do |post|
+  %p
+    Username: 
+    = post.trackable_user.name
+    %div
+    Tweet 
+    %br
+    = post.text
+    %div
+    Likes: 
+    = post.likes
+    %div
+    Created at:
+    = post.created_at

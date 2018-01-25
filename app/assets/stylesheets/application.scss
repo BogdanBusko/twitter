@@ -1,0 +1,38 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+  .nav.navnar-default {
+    .container-fluid {
+      .navbar-header {
+        .navbar-brand {
+          font-size: 28px;
+        }
+      }
+
+      .nav.navbar-nav {
+        margin-left: 10px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .nav.navbar-right { 
+    margin-right: 0px;
+  }
+
+  .registration-form {
+    margin: auto;
+    width: 400px;
+  }
+
+  .row {
+    .col-xs-6.col-md-4 {
+      margin-top: 10px;
+    }
+
+    .btn.btn-default, .btn.btn-danger{
+      margin-top: 20px;
+    }
+  }
+}
