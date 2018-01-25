@@ -21,6 +21,22 @@ class SaveTwitterData < TwitterApi
         likes: tweet.favorite_count,
         created_at: tweet.created_at
       ) if !tweet.quoted_tweet?
+
+      save_comment(post, user_tweets) if post.present?
+    end
+  end
+
+  def self.save_comment(post, user_tweets)
+    user_tweets.each do |tweet|
+      if tweet.quoted_tweet? && tweet.quoted_tweet.id == post.id
+        comments = post.comments.create!(
+          id: tweet.id,
+          body: tweet.text,
+          username: tweet.user.screen_name,
+          created_at: tweet.created_at
+        )
+        save_comment(comments, user_tweets)
+      end
     end
   end
 end

@@ -1,3 +1,4 @@
+%h1 Post
 %p
   Username: 
   = @post.trackable_user.name
@@ -11,3 +12,6 @@
   %div
   Created at:
   = @post.created_at
+- if @post.comments.count > 0
+  %h1 Comments
+  = render partial: 'comments', locals: { comments: @post.comments }

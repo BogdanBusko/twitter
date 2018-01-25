@@ -1,0 +1,9 @@
+- comments.each do |comment|
+  .subcomment   
+    .text
+      Text:
+      = comment.body
+    .user
+      Username:
+      = comment.username
+      = render( partial: 'comments', locals: { comments: comment.comments }) if comment.comments
