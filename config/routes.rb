@@ -14,7 +14,6 @@ Rails.application.routes.draw do
     end
   end
 
-  get   '/posts', to: 'posts#index', as: 'posts'
-  
   resources :trackable_users, only: [:index, :create, :destroy]
+  resources :posts, only: [:index, :show]
 end
